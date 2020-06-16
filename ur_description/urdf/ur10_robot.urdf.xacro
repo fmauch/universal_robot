@@ -3,6 +3,7 @@
        name="ur10" >
 
   <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+  <xacro:arg name="prefix" default=""/>
 
   <!-- common stuff -->
   <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
@@ -12,7 +13,7 @@
 
   <!-- arm -->
   <xacro:arg name="kinematics_config" default="$(find ur_description)/config/ur10_default.yaml"/>
-  <xacro:ur10_robot prefix="" joint_limited="false"
+  <xacro:ur10_robot prefix="$(arg prefix)" joint_limited="false"
     transmission_hw_interface="$(arg transmission_hw_interface)"
     kinematics_file="${load_yaml('$(arg kinematics_config)')}"
   />
