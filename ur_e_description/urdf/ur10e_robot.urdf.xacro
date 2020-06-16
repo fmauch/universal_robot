@@ -2,6 +2,9 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro"
        name="ur10e" >
 
+  <!-- arm prefix -->
+  <xacro:arg name="prefix" default=""/>
+
   <!-- common stuff -->
   <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
 
@@ -10,7 +13,7 @@
 
   <!-- arm -->
   <xacro:arg name="kinematics_config" default="$(find ur_description)/config/ur10_default.yaml"/>
-  <xacro:ur10e_robot prefix="" joint_limited="false"
+  <xacro:ur10e_robot prefix="$(arg prefix)" joint_limited="false"
     kinematics_file="${load_yaml('$(arg kinematics_config)')}"
   />
 
@@ -18,7 +21,7 @@
 
   <joint name="world_joint" type="fixed">
     <parent link="world" />
-    <child link = "base_link" />
+    <child link="$(arg prefix)base_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 
