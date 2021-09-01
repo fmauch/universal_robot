@@ -23,7 +23,7 @@ joint_state_controller:
   publish_rate: 50
 controller_list:
 - name: "scaled_pos_joint_traj_controller"
-  action_ns: scaled_pos_traj_controller/follow_joint_trajectory
+  action_ns: follow_joint_trajectory
   type: FollowJointTrajectory
   joints:
     - shoulder_pan_joint
