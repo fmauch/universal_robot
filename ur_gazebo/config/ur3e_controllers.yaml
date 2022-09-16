@@ -27,3 +27,8 @@ pos_joint_traj_controller:
 joint_group_pos_controller:
   type: position_controllers/JointGroupPositionController
   joints: *robot_joints
+
+# Pass an array of joint velocities directly to the joints
+joint_group_vel_controller:
+   type: velocity_controllers/JointGroupVelocityController
+   joints: *robot_joints
